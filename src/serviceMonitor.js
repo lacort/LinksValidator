@@ -152,7 +152,7 @@ class ServiceMonitor {
             {
                 service: "WsDisplay",
                 address: "http://nextqs.com",
-                port: 80,
+                port: 443,
                 timeout: 1000,
                 attempts: 1
             }, {

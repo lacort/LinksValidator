@@ -1,0 +1,24 @@
+##################################################################
+# Dockercomposer to build Links Validator
+# INSTALL DOCKER COMPOSE: https://docs.docker.com/compose/install/
+##################################################################
+
+
+
+
+version: "3.3"
+services:
+  linkValidator:
+    container_name: linkvalidator
+    image: linkvalidator
+    tty: true
+    #command:
+    working_dir: /var/node
+    ports:
+      - 8443:443
+      - 8081:8081
+      - 8080:80
+      - 822:22
+      - 8123:123
+    volumes: 
+      - ../linksValidator:/var/node
