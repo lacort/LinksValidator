@@ -12,7 +12,7 @@ SET UP THE DEV ENVIROMENT
 Create docker nodejs:
 
 ```
-$ docker build -t linkValidator .
+$ docker build -t linkvalidator .
 ```
 
 FIRST TIME RUNNING 
