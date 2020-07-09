@@ -21,4 +21,4 @@ services:
       - 822:22
       - 8123:123
     volumes: 
-      - ../linksValidator:/var/node
+      - ../LinksValidator:/var/node
