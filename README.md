@@ -31,4 +31,4 @@ Run inside the container the follow commad
 RURNING
 -------
 
-- phython3 src/serviceMonitor.js
+- node src/serviceMonitor.js
