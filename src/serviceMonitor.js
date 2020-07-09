@@ -25,115 +25,11 @@ class ServiceMonitor {
         const isReachable = require('is-reachable');
         let result = await isReachable(connection.address+':'+connection.port)
         return result
-
-    }
-    ping(connection) {
-        return new Promise((resolve, reject) => {
-            const tcpp = require('tcp-ping');
-            tcpp.ping(connection, (err, data) => {
-                let error = data.results[0].err
-                if (!error) {
-                    isReachable(resolve(true))
-                }
-                if (error) {
-                    resolve(false)
-                }
-            });
-        })
     }
 }
 
 (async function test() {
-    // let services = [{
-    //         service: "Google",
-    //         address: "google.com",
-    //         port: 80,
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "PPA",
-    //         address: "ppa.launchpad.net",
-    //         port: '',
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "PortUbuntu",
-    //         address: "ports.ubuntu.com",
-    //         port: 80,
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "SSH",
-    //         address: "git@ssh.github.com",
-    //         port: 8081,
-    //         timeout: 1000,
-    //         attempts: 1
-    //     }, {
-    //         service: "NextQsIo",
-    //         address: "wss://ws-display.nextqs.io",
-    //         port: 443,
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "NextQS",
-    //         address: "nextqs.com",
-    //         port: '',
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "YouTube",
-    //         address: "https://youtube.com",
-    //         port: '',
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "NextDisplay",
-    //         address: "github.com/nextqs/next.display.git",
-    //         port: '',
-    //         timeout: 1000,
-    //         attempts: 1
-    //     }, {
-    //         service: "DigitalOcean",
-    //         address: "nextqs.nyc3.digitaloceanspaces.com",
-    //         port: 80,
-    //         timeout: 1000,
-    //         attempts: 1
-    //     }, {
-    //         service: "Pyp",
-    //         address: "pypi.python.org",
-    //         port: 80,
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "Manager",
-    //         address: "manager.nextqs.com",
-    //         port: '',
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "Cdn",
-    //         address: "cdn.nextqs.io",
-    //         port: '',
-    //         timeout: 1000,
-    //         attempts: 1
-    //     },
-    //     {
-    //         service: "NtpUbuntu",
-    //         address: "ntp.ubuntu.com",
-    //         port: '',
-    //         timeout: 1000,
-    //         attempts: 1
-    //     }
-    // ]
-    let services2 = [
+    let services = [
 
             {
                 service: "PPA",
@@ -240,6 +136,6 @@ class ServiceMonitor {
 
         ],
 
-        status = await new ServiceMonitor(services2).monitor()
+        status = await new ServiceMonitor(services).monitor()
     console.log(status)
 }())
